@@ -1,8 +1,8 @@
 module memory(
-    input clk, wr_en, fetch, small_addr, reset, // rd_en,
+    input clk, wr_en, fetch, small_addr, reset, 
     input [7:0] rd_addr, wr_addr, wr_data,
     output reg [7:0] rd_data
-    //output [47:0] check
+    
 );
 
 integer i;
