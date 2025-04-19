@@ -37,7 +37,7 @@ module lipsi_processor(
         .wr_data(wr_data),
         .rd_data(rd_data), 
         .small_addr(small_addr) 
-        //.check(check)
+        
     );
 
     // Mux to select write address: 0 or rd_data
