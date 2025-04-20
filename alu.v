@@ -26,6 +26,7 @@ always @(*) begin
         4'b0101: acc_in = acc_out >> 1'b1;               // Logical Shift Right
         4'b0110: acc_in = acc_out <<< 1'b1;              // Arithmetic Shift Left
         4'b0111: acc_in = acc_out >>> 1'b1;              // Arithmetic Shift Right
+        default: acc_in = acc_out;                       // default
         // Note: acc_out is unsigned; <<< and >>> only behave differently if signed
     endcase
 end
