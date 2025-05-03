@@ -11,9 +11,9 @@ The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA
 The architecture includes the following major components:
 
 - **Program Counter (PC):** Tracks the current instruction address.
-- **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs(Von Neumann architecture)
+- **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs( Von Neumann architecture)
 - **ALU (Arithmetic Logic Unit):** Performs arithmetic and logical operations.
-- **Accumulator:** Store the value got from ALU operation or retains the current value
+- **Accumulator:** Stores the value got from ALU operation or retains the current value.
 - **Control Unit:** Decodes instructions and generates control signals.
 
 ## LIPSI instruction set with encoding
