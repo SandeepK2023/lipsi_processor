@@ -6,42 +6,6 @@ Lipsi is an 8-bit processor architecture which can be used to perform basic oper
  
 The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available. 
 
-## Installation and Setup instructions to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
-
-### Prerequisite
-Before running the project, ensure you have Vivado Design Suite installed and configured properly.
-
-### Cloning the Repository
-Clone the repository using Git:
-   ```bash
-   git clone https://github.com/SandeepK2023/lipsi_processor.git
-   ```
-### Running the Project
-
-- Open Vivado Design Suite, then click File --> Project --> New.
-- Then give the name of the project and then choose RTL project in the next window and click Next.
-- In the Add sources window, add all the Verilog code files (.v extension files) from the cloned files. Click Next.
-- In Add constraints window, add the constraints file (.xdc extension file). Click Next.
-- In Default Part window, choose Basys3 Board and click Next and then Finish.
-- This will create a new project for implementation of the Verilog codes for LIPSI processor.
-- Then run synthesis, implementation of the code in Vivado Design Suite. Once the synthesis and implementation runs are completed, you can generate bitstream. Once bitstream is generated successfully, connect laptop to Basys3 Board using micro-USB cable and program the device. 
-- The output of the instructions will be visible on the 7-segment display in hexadecimal format.
-
-## Module Description
-
-The top-level module has the following inputs and outputs:
-
-| **Signal Name**      | **Direction** | **Description**                                                      |
-|-----------------------|---------------|----------------------------------------------------------------------|
-| **clk**              | Input         | Clock input for the processor.                                          |
-| **reset**            | Input         | Reset signal for resetting the module.                              |
-| **acc**              | Output        | Value of the accumulator of the processor                            |
-| **seg_ctrl**         | Output        | Value of the control signals to be given to the 7 segment display for digit selection    |
-| **seg_led**          | Output        | Value of the control signals to be given to the 7 segment display for segment selection  |
-
-
----
-
 ## Architecture Overview
 
 The architecture includes the following major components:
@@ -83,6 +47,44 @@ The architecture includes the following major components:
 | 0100      | logical shift right   | A =  A >> op        |
 | 0100      |arithmetic shift left   | A =  A <<< op        |
 | 0100      | arithmetic shift right   | A =  A >>> op        |
+
+
+## Module Description
+
+The top-level module has the following inputs and outputs:
+
+| **Signal Name**      | **Direction** | **Description**                                                      |
+|-----------------------|---------------|----------------------------------------------------------------------|
+| **clk**              | Input         | Clock input for the processor.                                          |
+| **reset**            | Input         | Reset signal for resetting the module.                              |
+| **acc**              | Output        | Value of the accumulator of the processor                            |
+| **seg_ctrl**         | Output        | Value of the control signals to be given to the 7 segment display for digit selection    |
+| **seg_led**          | Output        | Value of the control signals to be given to the 7 segment display for segment selection  |
+
+
+---
+
+
+## Installation and Setup instructions to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
+
+### Prerequisite
+Before running the project, ensure you have Vivado Design Suite installed and configured properly.
+
+### Cloning the Repository
+Clone the repository using Git:
+   ```bash
+   git clone https://github.com/SandeepK2023/lipsi_processor.git
+   ```
+### Running the Project
+
+- Open Vivado Design Suite, then click File --> Project --> New.
+- Then give the name of the project and then choose RTL project in the next window and click Next.
+- In the Add sources window, add all the Verilog code files (.v extension files) from the cloned files. Click Next.
+- In Add constraints window, add the constraints file (.xdc extension file). Click Next.
+- In Default Part window, choose Basys3 Board and click Next and then Finish.
+- This will create a new project for implementation of the Verilog codes for LIPSI processor.
+- Then run synthesis, implementation of the code in Vivado Design Suite. Once the synthesis and implementation runs are completed, you can generate bitstream. Once bitstream is generated successfully, connect laptop to Basys3 Board using micro-USB cable and program the device. 
+- The output of the instructions will be visible on the 7-segment display in hexadecimal format.
 
 
 ## Simulation output
