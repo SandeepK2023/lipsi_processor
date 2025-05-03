@@ -6,6 +6,23 @@ Lipsi is an 8-bit processor which can be used to perform basic operations like f
  
 The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available
 
+## Module Description
+
+The top-level module has the following inputs and outputs:
+
+| **Signal Name**      | **Direction** | **Description**                                                      |
+|-----------------------|---------------|----------------------------------------------------------------------|
+| **clk**              | Input         | Clock input for the processor.                                          |
+| **reset**            | Input         | Reset signal for resetting the module.                              |
+
+| **acc**              | Output        | Value of the accumulator of the processor                            |
+| **seg_ctrl**         | Output        | Value of the control signals to be given to the 7 segment display for digit selection    |
+| **seg_led**          | Output        | Value of the control signals to be given to the 7 segment display for segment selection  |
+
+
+---
+
+
 ## Steps to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
 
 - Download all the code files. 
