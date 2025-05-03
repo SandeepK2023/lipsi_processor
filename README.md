@@ -53,7 +53,7 @@ The architecture includes the following major components:
 
 
     memo[9'd256] = 8'b11000111; <br>
-    memo[9'd257] = 8'd10; <br>
+    memo[9'd257] = 8'd00001010; <br>
     memo[9'd258] = 8'b10000001; <br>
     memo[9'd259] = 8'b10000010; <br>
     memo[9'd260] = 8'b11000001; <br>
@@ -71,4 +71,5 @@ You can modify the codes and instructions to meet your requirements!
 
 ## References
 
+The LIPSI processor designed is adapted from the following github repository:
 https://github.com/schoeberl/lipsi
