@@ -52,6 +52,22 @@ Clone the repository using Git:
 - Then run synthesis, implementation of the code in Vivado Design Suite. Once the synthesis and implementation runs are completed, you can generate bitstream. Once bitstream is generated successfully, connect laptop to Basys3 Board using micro-USB cable and program the device. 
 - The output of the instructions will be visible on the 7-segment display in hexadecimal format.
 
+## LIPSI instruction set with encoding
+
+| Encoding         | Instruction | Meaning                      | Operation          |
+|------------------|-------------|-------------------------------|--------------------|
+| 0fff rrrr        | f rx        | ALU register                  | A = A f m[r]       |
+| 1000 rrrr        | st rx       | store A into register         | m[r] = A           |
+| 1001 rrrr        | brl rx      | branch and link               | m[r] = PC, PC = A  |
+| 1010 rrrr        | ldind (rx)  | load indirect                 | A = m[m[r]]        |
+| 1011 rrrr        | stind (rx)  | store indirect                | m[m[r]] = A        |
+| 1100 -fff nnnn nnnn | f i n     | ALU immediate                 | A = A f n          |
+| 1101 --00 aaaa aaaa | br        | branch                        | PC = a             |
+| 1101 --10 aaaa aaaa | brz       | branch if A is zero           | PC = a             |
+| 1101 --11 aaaa aaaa | brnz      | branch if A is not zero       | PC = a             |
+| 1110 --ff         | sh         | ALU shift                     | A = shift(A)       |
+| 1111 1111         | exit       | exit for the tester           | PC = PC            |
+
 ## Customization
 
 - To implement on another FPGA by AMD, you might have to change the constraints file appropriately to map outputs and inputs correctly with the top module of the project (lipsi_processor.v). To implement on another FPGA by a different company, you must use the company specific software for implementing the Verilog codes. For example, for Intel FPGAs, you have to use Quartus Prime for implementing the Verilog codes on FPGA. Feel free to use the Verilog code files and implement the LIPSI processor on whichever FPGA is available with you! You can also simulate the verilog codes on advanced simulation softwares like QuestaSim to understand the working of the 8-bit processor.
