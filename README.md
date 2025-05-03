@@ -13,7 +13,7 @@ The architecture includes the following major components:
 - **Program Counter (PC):** Tracks the current instruction address.
 - **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs(Von Neumann architecture)
 - **ALU (Arithmetic Logic Unit):** Performs arithmetic and logical operations.
-- **Accumulator:** Stores the current value or the value got from ALU operation.
+- **Accumulator:** Store the value got from ALU operation or retain the current value
 - **Control Unit:** Decodes instructions and generates control signals.
 
 ## LIPSI instruction set with encoding
