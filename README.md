@@ -31,6 +31,36 @@ The architecture includes the following major components:
 - **Accumulator:** Stores the current value or the value got from ALU operation.
 - **Control Unit:** Decodes instructions and generates control signals.
 
+## LIPSI instruction set with encoding
+
+| Encoding         | Instruction | Meaning                      | Operation          |
+|------------------|-------------|-------------------------------|--------------------|
+| 0fff rrrr        | f rx        | ALU register                  | A = A f m[r]       |
+| 1000 rrrr        | st rx       | store A into register         | m[r] = A           |
+| 1001 rrrr        | brl rx      | branch and link               | m[r] = PC, PC = A  |
+| 1010 rrrr        | ldind (rx)  | load indirect                 | A = m[m[r]]        |
+| 1011 rrrr        | stind (rx)  | store indirect                | m[m[r]] = A        |
+| 1100 -fff nnnn nnnn | f i n     | ALU immediate                 | A = A f n          |
+| 1101 --00 aaaa aaaa | br        | branch                        | PC = a             |
+| 1101 --10 aaaa aaaa | brz       | branch if A is zero           | PC = a             |
+| 1101 --11 aaaa aaaa | brnz      | branch if A is not zero       | PC = a             |
+| 1110 --ff         | sh         | ALU shift                     | A = shift(A)       |
+| 1111 1111         | exit       | exit for the tester           | PC = PC            |
+
+### ALU operation and encoding
+
+| Encoding | Name | Operation     |
+|----------|------|---------------|
+| 000      | add  | A = A + op    |
+| 001      | sub  | A = A − op    |
+| 010      | adc  | A = A + op + c|
+| 011      | sbb  | A = A − op − c|
+| 100      | and  | A = A ∧ op    |
+| 101      | or   | A = A ∨ op    |
+| 110      | xor  | A = A ⊕ op   |
+| 111      | ld   | A = op        |
+
+ 
 ## Installation and Setup instructions to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
 
 ### Prerequisite
@@ -51,22 +81,6 @@ Clone the repository using Git:
 - This will create a new project for implementation of the Verilog codes for LIPSI processor.
 - Then run synthesis, implementation of the code in Vivado Design Suite. Once the synthesis and implementation runs are completed, you can generate bitstream. Once bitstream is generated successfully, connect laptop to Basys3 Board using micro-USB cable and program the device. 
 - The output of the instructions will be visible on the 7-segment display in hexadecimal format.
-
-## LIPSI instruction set with encoding
-
-| Encoding         | Instruction | Meaning                      | Operation          |
-|------------------|-------------|-------------------------------|--------------------|
-| 0fff rrrr        | f rx        | ALU register                  | A = A f m[r]       |
-| 1000 rrrr        | st rx       | store A into register         | m[r] = A           |
-| 1001 rrrr        | brl rx      | branch and link               | m[r] = PC, PC = A  |
-| 1010 rrrr        | ldind (rx)  | load indirect                 | A = m[m[r]]        |
-| 1011 rrrr        | stind (rx)  | store indirect                | m[m[r]] = A        |
-| 1100 -fff nnnn nnnn | f i n     | ALU immediate                 | A = A f n          |
-| 1101 --00 aaaa aaaa | br        | branch                        | PC = a             |
-| 1101 --10 aaaa aaaa | brz       | branch if A is zero           | PC = a             |
-| 1101 --11 aaaa aaaa | brnz      | branch if A is not zero       | PC = a             |
-| 1110 --ff         | sh         | ALU shift                     | A = shift(A)       |
-| 1111 1111         | exit       | exit for the tester           | PC = PC            |
 
 ## Customization
 
