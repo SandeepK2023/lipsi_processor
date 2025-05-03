@@ -2,17 +2,80 @@
 
 ## Description
 
-Lipsi is an 8-bit processor which can be used to perform basic operations like finding sum of ‘n’ natural numbers, sum of squares of ‘n’ natural numbers, finding factorials and other similar operations.
+Lipsi is an 8-bit processor which can be used to perform basic operations like finding sum of ‘n’ natural numbers, sum of squares of ‘n’ natural numbers, finding factorials and other similar operations using custom 8 bit instructions.
  
-The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available
+The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available. 
 
-## Steps to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
+## Module Description
 
-- Download all the code files. 
-- Install Vivado Design Suite from official website if not already installed.
+The top-level module has the following inputs and outputs:
+
+| **Signal Name**      | **Direction** | **Description**                                                      |
+|-----------------------|---------------|----------------------------------------------------------------------|
+| **clk**              | Input         | Clock input for the processor.                                          |
+| **reset**            | Input         | Reset signal for resetting the module.                              |
+| **acc**              | Output        | Value of the accumulator of the processor                            |
+| **seg_ctrl**         | Output        | Value of the control signals to be given to the 7 segment display for digit selection    |
+| **seg_led**          | Output        | Value of the control signals to be given to the 7 segment display for segment selection  |
+
+
+---
+
+## Architecture Overview
+
+The architecture includes the following major components:
+
+- **Program Counter (PC):** Tracks the current instruction address.
+- **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs(Von Neumann architecture)
+- **ALU (Arithmetic Logic Unit):** Performs arithmetic and logical operations.
+- **Accumulator:** Stores the current value or the value got from ALU operation.
+- **Control Unit:** Decodes instructions and generates control signals.
+
+## LIPSI instruction set with encoding
+
+| Encoding         | Instruction | Meaning                      | Operation          |
+|------------------|-------------|-------------------------------|--------------------|
+| 0fff rrrr        | f rx        | ALU register                  | A = A f m[r]       |
+| 1000 rrrr        | st rx       | store A into register         | m[r] = A           |
+| 1001 rrrr        | brl rx      | branch and link               | m[r] = PC, PC = A  |
+| 1010 rrrr        | ldind (rx)  | load indirect                 | A = m[m[r]]        |
+| 1011 rrrr        | stind (rx)  | store indirect                | m[m[r]] = A        |
+| 1100 -fff nnnn nnnn | f i n     | ALU immediate                 | A = A f n          |
+| 1101 --00 aaaa aaaa | br        | branch                        | PC = a             |
+| 1101 --10 aaaa aaaa | brz       | branch if A is zero           | PC = a             |
+| 1101 --11 aaaa aaaa | brnz      | branch if A is not zero       | PC = a             |
+| 1110 --ff         | sh         | ALU shift                     | A = shift(A)       |
+| 1111 1111         | exit       | exit for the tester           | PC = PC            |
+
+### ALU operation and encoding
+
+| Encoding | Name | Operation     |
+|----------|------|---------------|
+| 000      | add  | A = A + op    |
+| 001      | sub  | A = A − op    |
+| 010      | adc  | A = A + op + c|
+| 011      | sbb  | A = A − op − c|
+| 100      | and  | A = A ∧ op    |
+| 101      | or   | A = A ∨ op    |
+| 110      | xor  | A = A ⊕ op   |
+| 111      | ld   | A = op        |
+
+ 
+## Installation and Setup instructions to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
+
+### Prerequisite
+Before running the project, ensure you have Vivado Design Suite installed and configured properly.
+
+### Cloning the Repository
+Clone the repository using Git:
+   ```bash
+   git clone https://github.com/SandeepK2023/lipsi_processor.git
+   ```
+### Running the Project
+
 - Open Vivado Design Suite, then click File --> Project --> New.
 - Then give the name of the project and then choose RTL project in the next window and click Next.
-- In the Add sources window, add all the Verilog code files (.v extension files) from the downloaded files. Click Next.
+- In the Add sources window, add all the Verilog code files (.v extension files) from the cloned files. Click Next.
 - In Add constraints window, add the constraints file (.xdc extension file). Click Next.
 - In Default Part window, choose Basys3 Board and click Next and then Finish.
 - This will create a new project for implementation of the Verilog codes for LIPSI processor.
@@ -28,7 +91,7 @@ The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA
 
 
     memo[9'd256] = 8'b11000111; <br>
-    memo[9'd257] = 8'd10; <br>
+    memo[9'd257] = 8'd00001010; <br>
     memo[9'd258] = 8'b10000001; <br>
     memo[9'd259] = 8'b10000010; <br>
     memo[9'd260] = 8'b11000001; <br>
@@ -46,4 +109,5 @@ You can modify the codes and instructions to meet your requirements!
 
 ## References
 
+The LIPSI processor designed is adapted from the following github repository:
 https://github.com/schoeberl/lipsi
