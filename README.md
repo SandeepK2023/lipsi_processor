@@ -79,8 +79,8 @@ The architecture includes the following major components:
 | 1100      | and  | A = A ∧ op    |
 | 1101      | or   | A = A ∨ op    |
 | 1110      | xor  | A = A ⊕ op   |
-| 0100      | shift left   | A =  A << op        |
-| 0100      | shift right   | A =  A >> op        |
+| 0100      | logical shift left   | A =  A << op        |
+| 0100      | logical shift right   | A =  A >> op        |
 | 0100      |arithmetic shift left   | A =  A <<< op        |
 | 0100      | arithmetic shift right   | A =  A >>> op        |
 
