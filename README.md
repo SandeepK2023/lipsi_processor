@@ -2,9 +2,9 @@
 
 ## Description
 
-Lipsi is an 8-bit processor which can be used to perform basic operations like finding sum of ‘n’ natural numbers, sum of squares of ‘n’ natural numbers, finding factorials and other similar operations.
+Lipsi is an 8-bit processor which can be used to perform basic operations like finding sum of ‘n’ natural numbers, sum of squares of ‘n’ natural numbers, finding factorials and other similar operations using custom 8 bit instructions.
  
-The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available
+The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available. 
 
 ## Module Description
 
@@ -26,7 +26,7 @@ The top-level module has the following inputs and outputs:
 The architecture includes the following major components:
 
 - **Program Counter (PC):** Tracks the current instruction address.
-- **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs.
+- **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs(Von Neumann architecture)
 - **ALU (Arithmetic Logic Unit):** Performs arithmetic and logical operations.
 - **Accumulator:** Stores the current value or the value got from ALU operation.
 - **Control Unit:** Decodes instructions and generates control signals.
