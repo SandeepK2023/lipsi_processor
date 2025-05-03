@@ -14,7 +14,6 @@ The top-level module has the following inputs and outputs:
 |-----------------------|---------------|----------------------------------------------------------------------|
 | **clk**              | Input         | Clock input for the processor.                                          |
 | **reset**            | Input         | Reset signal for resetting the module.                              |
-
 | **acc**              | Output        | Value of the accumulator of the processor                            |
 | **seg_ctrl**         | Output        | Value of the control signals to be given to the 7 segment display for digit selection    |
 | **seg_led**          | Output        | Value of the control signals to be given to the 7 segment display for segment selection  |
