@@ -72,14 +72,18 @@ The architecture includes the following major components:
 
 | Encoding | Name | Operation     |
 |----------|------|---------------|
-| 000      | add  | A = A + op    |
-| 001      | sub  | A = A − op    |
-| 010      | adc  | A = A + op + c|
-| 011      | sbb  | A = A − op − c|
-| 100      | and  | A = A ∧ op    |
-| 101      | or   | A = A ∨ op    |
-| 110      | xor  | A = A ⊕ op   |
-| 111      | ld   | A = op        |
+| 1000      | add  | A = A + op    |
+| 1001      | sub  | A = A − op    |
+| 1010      | adc  | A = A + op + c|
+| 1011      | sbb  | A = A − op − c|
+| 1100      | and  | A = A ∧ op    |
+| 1101      | or   | A = A ∨ op    |
+| 1110      | xor  | A = A ⊕ op   |
+| 0100      | shift left   | A =  A << op        |
+| 0100      | shift right   | A =  A >> op        |
+| 0100      |arithmetic shift left   | A =  A <<< op        |
+| 0100      | arithmetic shift right   | A =  A >>> op        |
+
 
 ## Simulation output
 ### For finding factorial of 5
