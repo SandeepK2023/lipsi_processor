@@ -21,6 +21,15 @@ The top-level module has the following inputs and outputs:
 
 ---
 
+## Architecture Overview
+
+The architecture includes the following major components:
+
+- **Program Counter (PC):** Tracks the current instruction address.
+- **Memory:** Consists of data memory which stores data values and instruction memory which stores instruction inputs.
+- **ALU (Arithmetic Logic Unit):** Performs arithmetic and logical operations.
+- **Accumulator:** Stores the current value or the value got from ALU operation.
+- **Control Unit:** Decodes instructions and generates control signals.
 
 ## Steps to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
 
