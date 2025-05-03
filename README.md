@@ -31,13 +31,21 @@ The architecture includes the following major components:
 - **Accumulator:** Stores the current value or the value got from ALU operation.
 - **Control Unit:** Decodes instructions and generates control signals.
 
-## Steps to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
+## Installation and Setup instructions to implement the LIPSI processor on Artix-7 FPGA (On Basys3 board)
 
-- Download all the code files. 
-- Install Vivado Design Suite from official website if not already installed.
+### Prerequisite
+Before running the project, ensure you have Vivado Design Suite installed and configured properly.
+
+### Cloning the Repository
+Clone the repository using Git:
+   ```bash
+   git clone https://github.com/SandeepK2023/lipsi_processor.git
+   ```
+### Running the Project
+
 - Open Vivado Design Suite, then click File --> Project --> New.
 - Then give the name of the project and then choose RTL project in the next window and click Next.
-- In the Add sources window, add all the Verilog code files (.v extension files) from the downloaded files. Click Next.
+- In the Add sources window, add all the Verilog code files (.v extension files) from the cloned files. Click Next.
 - In Add constraints window, add the constraints file (.xdc extension file). Click Next.
 - In Default Part window, choose Basys3 Board and click Next and then Finish.
 - This will create a new project for implementation of the Verilog codes for LIPSI processor.
