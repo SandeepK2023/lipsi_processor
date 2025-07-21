@@ -78,13 +78,13 @@ Clone the repository using Git:
    ```
 ### Running the Project
 
-- Open Vivado Design Suite, then click File --> Project --> New.
+- Open Vivado, then click File --> Project --> New.
 - Then give the name of the project and then choose RTL project in the next window and click Next.
 - In the Add sources window, add all the Verilog code files (.v extension files) from the cloned files. Click Next.
 - In Add constraints window, add the constraints file (.xdc extension file). Click Next.
 - In Default Part window, choose Basys3 Board and click Next and then Finish.
 - This will create a new project for implementation of the Verilog codes for LIPSI processor.
-- Then run synthesis, implementation of the code in Vivado Design Suite. Once the synthesis and implementation runs are completed, you can generate bitstream. Once bitstream is generated successfully, connect laptop to Basys3 Board using micro-USB cable and program the device. 
+- Then run synthesis, implementation of the code in Vivado. Once the synthesis and implementation runs are completed, you can generate bitstream. Once bitstream is generated successfully, connect laptop to Basys3 Board using micro-USB cable and program the device. 
 - The output of the instructions will be visible on the 7-segment display in hexadecimal format.
 
 
