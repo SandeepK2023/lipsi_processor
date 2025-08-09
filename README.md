@@ -2,7 +2,7 @@
 
 ## Description
 
-Lipsi is an 8-bit microprocessor architecture which supports execution of programs to perform basic tasks like finding sum of ‘n’ natural numbers, sum of squares of ‘n’ natural numbers, finding factorials and other such computations using custom 8 bit instructions.
+Lipsi is an 8-bit microprocessor architecture which supports execution of programs to perform basic tasks like finding sum of ‘n’ natural numbers, sum of squares of ‘n’ natural numbers, finding factorials and other such computations using custom 8-bit instructions.
  
 The processor is designed using Verilog HDL & can be implemented on Artix-7 FPGA (On Basys3 board) using Vivado Design Suite or on any other FPGA available. 
 
